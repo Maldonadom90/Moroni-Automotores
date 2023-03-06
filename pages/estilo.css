@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: #043069;
+}
+nav{
+    background-color: black;
+}
+.navbar{
+    padding-inline: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img{
+    width: 100px;
+}
+.boton{
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5em;
+    align-items: center;
+}
+.boton > a {
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: whitesmoke;
+    text-decoration: none;
+}
+.portada img{
+    width: 100%;
+}
+section{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    gap: 1rem;
+}
+section h2 {
+    font-size: 26px;
+    text-decoration: underline;
+    color: aqua;
+
+}
+.autos ul{
+    width: 300px;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 1em;
+    background-color:blanchedalmond;
+    font-size: 20px;
+    font-weight: bold;
+}
+.tutor{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 2em;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgba(255, 235, 205, 0.555);
+}
+.alumno{
+    width: 400px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    text-align: start;
+    background-color: rgba(255, 235, 205, 0.555);
+}
