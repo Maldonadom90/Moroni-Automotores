@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/estilo.css">
     <script src="./pages/menu.js"></script>
+    <script src="./pages/class.js"></script>
     <title>Moroni Automotores</title>
 </head>
 <body>
@@ -28,16 +29,75 @@
     </main>
     <section>
         <h2>Listado de Vehículos disponibles</h2>
-        <ol class="autos">
-            <ul>🚗 Ford Focus</ul>
-            <ul>🚙 Audi TT</ul>
-            <ul>🛺 Chevrolet Sonic</ul>
-            <ul>🚐 Citroen C3</ul>
-        </ol>
+        <div class="autos">
+            <article class="card">
+                <div>
+                    <img src="./imagenes/192-OROCH2019.png" alt="oroch">
+                </div>
+            <div class="card_content">
+                <span class="card_title">Renault Oroch</span>
+                    <span class="card_subtitle">Modelo 2019</span>
+                    <p class="card_description">Lorem ipsum dolor</p>
+            </div>
+            </article>
+
+            <article class="card">
+                <div>
+                    <img src="./imagenes/194-308LLURE2015.png" alt="308">
+                </div>
+            <div class="card_content">
+                <span class="card_title">Peugeot 308</span>
+                    <span class="card_subtitle">Modelo 2015</span>
+                    <p class="card_description">Lorem ipsum dolor</p>
+            </div>
+            </article>
+
+            <article class="card">
+                <div>
+                    <img src="./imagenes/196-CLSSIC2013.png" alt="Clio">
+                </div>
+            <div class="card_content">
+                <span class="card_title">Renault Clio Classic</span>
+                    <span class="card_subtitle">Modelo 2013</span>
+                    <p class="card_description">Lorem ipsum dolor</p>
+            </div>
+            </article>
+
+            <article class="card">
+                <div>
+                    <img src="./imagenes/FordKA.jpg" alt="FordKA">
+                </div>
+            <div class="card_content">
+                <span class="card_title">Ford Ka</span>
+                    <span class="card_subtitle">Modelo 2012</span>
+                    <p class="card_description">Lorem ipsum dolor</p>
+            </div>
+            </article>
+
+            <article class="card">
+                <div>
+                    <img src="./imagenes/Logan.jpg" alt="Logan">
+                </div>
+            <div class="card_content">
+                <span class="card_title">Renault Logan</span>
+                    <span class="card_subtitle">Modelo 2016</span>
+                    <p class="card_description">Lorem ipsum dolor</p>
+            </div>
+            </article>
+
+            <article class="card">
+                <div>
+                    <img src="./imagenes/Peugeot307.jpg" alt="307">
+                </div>
+            <div class="card_content">
+                <span class="card_title">Peugeot 307</span>
+                    <span class="card_subtitle">Modelo 2009</span>
+                    <p class="card_description">Lorem ipsum dolor</p>
+            </div>
+            </article>
+        </div>
     </section>
-    <div class="tutor">
-        <p>Bienvenido Tutor Corrector, por favor utiliza la función <em><b>consultaDePrecio()</b></em> en la consola js 🦾</p>
-    </div>
+    
     <div class="alumno">
         <p>Alumno: Mauricio Nicolás Maldonado</p>
         <p>Comisión JavaScript: 39470</p>

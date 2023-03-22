@@ -14,6 +14,13 @@ nav{
 .navbar{
     padding-inline: 30px;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar li{
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
@@ -38,7 +45,7 @@ nav{
 }
 section{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
     justify-content: space-around;
     gap: 1rem;
@@ -49,15 +56,88 @@ section h2 {
     color: aqua;
 
 }
-.autos ul{
-    width: 300px;
-    padding: 10px;
-    margin: 3px;
+.autos{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+
+}
+.autos img{
+    width: 100%;
     border-radius: 1em;
-    background-color:blanchedalmond;
-    font-size: 20px;
+}
+/*css de card*/
+.card {
+    position: relative;
+    width: 280px;
+    height: 250px;
+    color: #2e2d31;
+    background: #131313;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.card_title {
     font-weight: bold;
 }
+
+.card_content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: #043069;
+    border-top-left-radius: 20px;
+    transform: translateY(150px);
+    transition: transform .50s;
+}
+
+.card_content::before {
+    content: '';
+    position: absolute;
+    top: -47px;
+    right: -45px;
+    width: 100px;
+    height: 100px;
+    transform: rotate(-175deg);
+    border-radius: 50%;
+    box-shadow: inset 48px 48px #f2f2f28f;
+}
+
+.card_title {
+    color: whitesmoke;
+    line-height: 15px;
+}
+
+.card_subtitle {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: whitesmoke;
+}
+
+.card_description {
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity .5s;
+    color: whitesmoke;
+}
+
+.card:hover .card_content {
+    transform: translateY(0);
+}
+
+.card:hover .card_description {
+    opacity: 1;
+    transition-delay: .30s;
+}
+
 .tutor{
     padding: 10px;
     margin: 10px;

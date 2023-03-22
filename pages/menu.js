@@ -1,53 +1,83 @@
-/*PreEntrega N°1*/
+/*PreEntrega N°2*/
 
-const bienvenido = alert("Bienvenidos a mi primera PreEntrega \n" +
-                        "Por favor ingrese la función que describo al final de la página en la consola de JS. \n" +
+const reserva = []
+
+const bienvenido = alert("\n" +
+                        "Bienvenidos a mi segunda PreEntrega \n" +
+                         "\n"+
+                        "Por favor ingrese la función 'reservarAuto()' en la consola de JS. \n" +
                         "\n" +
-                        "       Muchas Gracias ❤")
+                        "\n" +
+                        "                Muchas Gracias ❤")
 
-let respuestaDePrecio = ""
-let otraConsulta = true
+
 
 const saludo = "Bienvenido a Moroni Automotores \n" +
+                "            Lista de vehículos disponibles: \n" +
+                "                    1) 🚗 Renault Oroch \n" +
+                "                    2) 🚙 Peugeot 308 \n" +
+                "                    3) 🛺 Renault Clio Classic \n" +
+                "                    4) 🚐 Ford Ka \n" +
+                "                    5) 🚘 Renault Logan \n" +
+                "                    6) 🛸 Peugeot 307 \n" +
                 "\n" +
-                "Lista de vehículos disponibles: \n" +
-                "a) 🚗 Ford Focus \n" +
-                "b) 🚙 Audi TT \n" +
-                "c) 🛺 Chevrolet Sonic \n" +
-                "d) 🚐 Citroen C3 \n" +
-                "\n" +
-                "Indique la letra que corresponda al vehículo por cual desea consultar: "
+                "Indique el código que por cual desea consultar: "
 
-function consultaDePrecio() {
-    while(otraConsulta){
-        listaDePrecio()
-        otraConsulta = confirm ("Desea conocer el valor de algún otro vehículo?")
-    }
+
+const autos = [{ marca: 'Renault', tipo: 'Oroch',        modelo: 2019, codigo: 1, precio: 5900000},
+               { marca: 'Peugeot', tipo: '308',          modelo: 2015, codigo: 2, precio: 3689900},
+               { marca: 'Renault', tipo: 'Clio Classic', modelo: 2013, codigo: 3, precio: 1500000},
+               { marca: 'Ford',    tipo: 'Ka',           modelo: 2012, codigo: 4, precio: 1780000},
+               { marca: 'Renault', tipo: 'Logan',        modelo: 2016, codigo: 5, precio: 2800000},
+               { marca: 'Peugeot', tipo: '307',          modelo: 2009, codigo: 6, precio: 2290000}]
+
+function buscarAuto(codigo) {
+    let busqueda = autos.find (auto => auto.codigo === parseInt(codigo))
+    return busqueda
 }
 
-function listaDePrecio() {
-    let opcion = prompt(saludo).toLowerCase().trim()
-
-    if (opcion !== "a" && opcion !== "b" && opcion !== "c" && opcion !== "d") {
-        alert("💥Error, por favor ingrese una de las letras que se encuentran en las opciones💥")
-    } else {
-        switch (opcion) {
-            case "a":
-                respuestaDePrecio = "🚗 Ford Focus tiene un costo de $2.800.000"
-                break
-            case "b":
-                respuestaDePrecio ="🚙 Audi TT tiene un costo de $10.300.000"
-                break
-            case "c":
-                respuestaDePrecio = "🛺 Chevrolet Sonic tiene un costo de $1.500.000"
-                break
-            case "d":
-                respuestaDePrecio = "🚐 Citroen C3 tiene un costo de $3.780.000"
-                break
-            default:
-                console.error("El vehículo requerido no se encuentra disponible")
+function reservarAuto (){ //funcion para saber el valor de los autos disponibles//
+    const codigo = parseInt(prompt(saludo))
+    let autoElegido = buscarAuto(codigo)
+        if (autoElegido === undefined){
+            alert("🙀El código ingresado no se encuentra disponible🙀")
+            return prompt(saludo)
+        } else {
+            reserva.push(autoElegido)
+            alert (`${autoElegido.marca} ${autoElegido.tipo} tiene un valor de $ ${autoElegido.precio}.`)
+            let agregarAReserva = confirm ("Quiere reservar algún otro auto?")
+            if (agregarAReserva){
+                reservarAuto()
+            } else {
+                let confirmarReserva = confirm ("Si desea confirmar la reserva, por favor confirme la operación.")
+                if (confirmarReserva){
+                    finalizarReserva()
+                }else {
+                    alert ("Hasta la próxima ❤")
+                }
+                
+            }
         }
-        alert(respuestaDePrecio)
+}
+
+function verReserva () {
+    if (reserva.length > 0){
+        console.table (reserva)
+    } else {
+        console.warn ("No se reservo ningún auto todavía")
     }
 }
+ function finalizarReserva (){
+    if (reserva.length === 0){
+        console.warn ("No se reservo ningún auto todavía")
+        return
+    }
+    const comprar = new Negocio(reserva)
+    alert (`El valor total de la reserva es de $ ${comprar.planDeCompra()}`)
+    let respuesta = confirm("Si desea efectuar el pago de la reserva realizada oprima el botón ACEPTAR, de lo contrario, oprima el botón CANCELAR")
+    if (respuesta) {
+        alert(comprar.completarReserva())
+        reserva.length = 0
+    }
+ }
 
