@@ -2,21 +2,28 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Times New Roman', Times, serif;
-}
+    font-family: 'Montserrat', sans-serif;}
 
 body{
     background-color: #043069;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
 }
 nav{
+    width: 600px;
+    border-radius: 0.5em;
     background-color: black;
 }
 .navbar{
     padding-inline: 30px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    gap: 2em;
 }
 .navbar li{
     display: flex;
@@ -51,9 +58,9 @@ section{
     gap: 1rem;
 }
 section h2 {
-    font-size: 26px;
-    text-decoration: underline;
-    color: aqua;
+    font-size: 24px;
+    text-decoration: none;
+    color: whitesmoke;
 
 }
 .autos{
@@ -107,7 +114,7 @@ section h2 {
     height: 100px;
     transform: rotate(-175deg);
     border-radius: 50%;
-    box-shadow: inset 48px 48px #f2f2f28f;
+    box-shadow: inset 48px 48px #f2f2f2ea;
 }
 
 .card_title {
@@ -138,19 +145,64 @@ section h2 {
     transition-delay: .30s;
 }
 
-.tutor{
-    padding: 10px;
-    margin: 10px;
-    border-radius: 2em;
-    font-size: 20px;
-    text-align: center;
-    background-color: rgba(255, 235, 205, 0.555);
+.boton_consulta{
+    padding: 4px;
+    margin: 3px;
+    border-radius: 0.5em;
+    
 }
-.alumno{
-    width: 400px;
+.mapas{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+}
+.google{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3em;
+}
+.google iframe{
+    border-radius: 0.5em;
+}
+
+footer{
+    width: 100%;
+    background-color: #131313;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     padding: 10px;
-    margin: 10px;
-    font-size: 20px;
-    text-align: start;
-    background-color: rgba(255, 235, 205, 0.555);
+    padding-bottom: 50px;
+}
+.redes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+}
+.redes h3{
+    color: whitesmoke;
+}
+.redes ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2em;
+    list-style: none;
+    font-size: 28px;
+}
+#logo-footer img{
+    width: 300px;
 }
