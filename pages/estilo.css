@@ -34,6 +34,7 @@ nav{
 }
 .logo img{
     width: 100px;
+    border-radius: 2em;
 }
 .boton{
     width: 100%;
@@ -215,7 +216,21 @@ footer{
 }
 /*fin de estilo index*/
 /*inicio estilo página2*/
+.main_catalogo{
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+}
 .catalogo{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     margin: 10px;
     padding: 10px;
     border-radius: .5em;
@@ -227,6 +242,9 @@ footer{
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2em;
+}
+.catalogo img{
+    width: 300px;
 }
 .catalogo ul button{
     margin-top: 60px;

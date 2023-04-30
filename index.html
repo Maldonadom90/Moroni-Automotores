@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;1,100;1,200;1,300;1,900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6bc05f2ef0.js" crossorigin="anonymous"></script>
-    <script defer src="./pages/menu.js"></script>
-    <script src="./pages/class.js"></script>
-    <script defer src="./pages/info.js"></script>
+    <script src="pages/base.js"></script>
+    <script defer src="pages/menu.js"></script>
+
     <title>Moroni Automotores</title>
 </head>
 <body>
@@ -19,8 +19,7 @@
         <nav class="navbar">
             <li>
                 <ul class="boton"> <a href="#">Inicio</a> </ul>
-                <ul class="boton"> <a href="./pages/info.html">información</a> </ul>
-                <ul class="boton"> <a href="">Conocenos</a> </ul>
+                <ul class="boton"> <a href="#Conocenos">Conocenos</a> </ul>
             </li>
             <div class="logo">
                 <img src="./imagenes/Logo Moroni.jpg" alt="Logo">
@@ -36,7 +35,7 @@
         <h2>Listado de Vehículos disponibles</h2>
         <div class="autos"><!--aca van las cards generadas en js--></div>
     </section>
-    <section class="mapas">
+    <section class="mapas" id="Conocenos">
         <h2>Acercate a nuestras consecionarias</h2>
         <div class="google">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2388.0925715574635!2d-64.13041307104223!3d-32.16991486872017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95cd6fa5184750f1%3A0x17afcd78e07f5fa6!2sMoroni%20Automotores!5e0!3m2!1ses!2sar!4v1680360852112!5m2!1ses!2sar" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

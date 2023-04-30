@@ -1,63 +1,75 @@
 
-
-const card = document.querySelector(".autos")
 const catalogo = document.querySelector(".catalogo")
-const info = []
+const reservar = document.querySelector("button.boton_reserva")
+const URL = 'pages/autos.json'
+const autos = []
 
-
-
-//array de objetos que contiene todos los datos de los autos en stock//
-const autos = [{ imagen: "./imagenes/192-OROCH2019.png",    marca: 'Renault', tipo: 'Oroch',        modelo: 2019, codigo: 1, precio: 5900000, kilometros: 150000},
-               { imagen: "./imagenes/194-308LLURE2015.png", marca: 'Peugeot', tipo: '308',          modelo: 2015, codigo: 2, precio: 3689900, kilometros: 100000},
-               { imagen: "./imagenes/196-CLSSIC2013.png",   marca: 'Renault', tipo: 'Clio Classic', modelo: 2013, codigo: 3, precio: 1500000, kilometros: 220000},
-               { imagen: "./imagenes/FordKA.jpg",           marca: 'Ford',    tipo: 'Ka',           modelo: 2012, codigo: 4, precio: 1780000, kilometros: 80000},
-               { imagen: "./imagenes/Logan.jpg",            marca: 'Renault', tipo: 'Logan',        modelo: 2016, codigo: 5, precio: 2800000, kilometros: 110000},
-               { imagen: "./imagenes/Peugeot307.jpg",       marca: 'Peugeot', tipo: '307',          modelo: 2009, codigo: 6, precio: 2290000, kilometros: 190000}]
-
-
-//funcion para generar cards de los autos//
-function generadorDeCards (auto){
-    return `<article class="card">
-                <div>
-                    <img src=${auto.imagen} alt="auto">
-                </div>
-            <div class="card_content">
-                <span class="card_title">${auto.marca} ${auto.tipo}</span>
-                    <span class="card_subtitle">Modelo ${auto.modelo}</span>
-                    <button class="boton_consulta" id=${auto.codigo}>+ info</button></p>
-            </div>
-            </article>`
+//funcion de fetch//
+function baseDeDatos(){
+    fetch(URL)
+    .then(response=> response.status === 200 && response.json() )
+    .then(data => autos.push(...data))
+    .then(() => agregarAReserva(autos))
+    .catch(error => { console.log(error)}) 
 }
+baseDeDatos()
 
-function cargarCards(array) {
-    card.innerHTML = ""
-    array.forEach(element => { card.innerHTML += generadorDeCards(element) })
-    eventoBoton()
+//funcion para crear las tarjetitas de masInfo//
+function crearInfo(){
+    catalogo.innerHTML = ""
+    if (masInfo.length >0) {
+            masInfo.forEach((auto)=>{ catalogo.innerHTML += generadorInfo(auto) })
+            botonEliminar()
+            eventoReserva()
+    }else{
+        catalogo.innerHTML = "No se solicitó ninguna información todavía"
+    }
 }
-    cargarCards(autos)//con esta linea de codigo se carga automaticamente todos los objetos en las cards de los autos//
-//fin de la funcion//
+crearInfo()
 
 // eventos que usamos para reconocer que botones estan siendo clickeados//
-function eventoBoton() {
-    const buttons = document.querySelectorAll("button")
-            for (boton of buttons) { 
-                boton.addEventListener("click", (element)=> { 
-                    agregarAReserva(element.target.id)
-                    
+function botonEliminar(){
+    const botones = document.querySelectorAll("button.boton_x")
+    if(botones !== null){
+        for(const boton of botones){ boton.addEventListener("click", (event)=> { let num = masInfo.findIndex(auto => auto.codigo === parseInt(event.target.id))
+                masInfo.splice(num, 1)
+                pedidoDeInfo()
+                crearInfo()
+            })
+        }
+    }
+}
+
+// eventos que usamos para reconocer que botones estan siendo clickeados//
+        function eventoReserva() {
+            const buttons = document.querySelectorAll("button.boton_reserva")
+                    for (boton of buttons) { 
+                        boton.addEventListener("click", (element)=> { 
+                            agregarAReserva(element.target.id)
+                        })
+                    }
+        }
+
+//funcion  para reservar autos//
+function agregarAReserva(id) {
+    let resultado = autos.find(auto => auto.codigo === parseInt(id))
+        Swal.fire({
+                title: `${resultado.marca} ${resultado.tipo}` + '<strong>  reservado!!</strong>',
+                icon: 'success',
+                html:
+                    'Se debitaran de su cuenta =  $ ' + `${resultado.reserva}` +
+                    '<br>Lo esperamos en nuestras concesionarias para finalizar el registro.' +
+                    '<br>Muchas gracias por confiar en nosotros.' +
+                    '<br>Moroni Automotores' +
+                    '<br><div class="logo"><img src="./imagenes/Logo Moroni.jpg" alt="Logo"></div>',
+                showCloseButton: true,
+                showCancelButton: false,
+                focusConfirm: false,
+                confirmButtonText:
+                    '<i class="fa fa-thumbs-up"></i>',
+                confirmButtonAriaLabel: 'Thumbs up, great!',
                 })
-            }
+            localStorage.removeItem("infoExtra")
+            masInfo.length = 0
+            crearInfo()
 }
-
-//genera card de mas info//
-/*function generadorInfo(auto){
-    return `<ul>
-                <li>${auto.marca} ${auto.tipo}</li>
-                <li>Modelo: ${auto.modelo}</li>
-                <li>KM: ${auto.kilometros} kms</li>
-                <li>Precio: $${auto.precio}</li>
-                <button class="botones" id=${auto.codigo}>Reservar</button>
-                <button class="botones">Eliminar</button>
-            </ul>`
-}
-generadorInfo(autos)*/
-
