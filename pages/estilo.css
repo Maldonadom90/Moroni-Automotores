@@ -12,6 +12,8 @@ body{
     align-items: center;
     gap: 1em;
 }
+/*fin de body*/
+
 nav{
     width: 100%;
     border-radius: 0.5em;
@@ -36,6 +38,11 @@ nav{
     width: 100px;
     border-radius: 2em;
 }
+@media screen and (max-width: 576px){
+    .logo img{
+        width: 80px;
+    }
+}
 .boton{
     width: 100%;
     display: flex;
@@ -49,6 +56,13 @@ nav{
     color: whitesmoke;
     text-decoration: none;
 }
+@media screen and (max-width: 576px) {
+    .boton > a {
+        font-size: 14px;
+    }
+}
+/*fin de navbar*/
+
 .portada img{
     width: 100%;
 }
@@ -59,11 +73,16 @@ section{
     justify-content: space-around;
     gap: 1rem;
 }
+
 section h2 {
     font-size: 24px;
     text-decoration: none;
     color: whitesmoke;
-
+}
+@media screen and (max-width: 576px) {
+    section h2{
+        font-size: 18px;
+    }
 }
 .autos{
     width: 100%;
@@ -73,12 +92,20 @@ section h2 {
     justify-content: space-around;
     align-items: center;
     gap: 2rem;
-
+}
+@media screen and (max-width: 576px){
+    .autos{
+        width: 280px; 
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem; 
+    }
 }
 .autos img{
     width: 100%;
     border-radius: 1em;
 }
+
 /*css de card*/
 .card {
     position: relative;
@@ -168,6 +195,25 @@ section h2 {
     align-items: center;
     gap: 2em;
 }
+@media screen and (max-width: 576px){
+    .mapas{
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+}
+.mapas h2{
+    font-size: 25px;
+}
+@media screen and (max-width: 576px){
+    .mapas h2{
+        font-size: 15px;
+    }
+}
 .google{
     padding: 20px;
     display: flex;
@@ -180,6 +226,8 @@ section h2 {
 .google iframe{
     border-radius: 0.5em;
 }
+/*fin de mapas*/
+
 
 footer{
     width: 100%;
@@ -192,6 +240,19 @@ footer{
     padding: 10px;
     padding-bottom: 50px;
 }
+@media screen and (max-width: 576px){
+    footer{
+        width: 100%;
+        background-color: #131313;
+        border-radius: 0.5em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5px;
+        padding-bottom: 15px;
+    }
+}
 .redes{
     display: flex;
     flex-direction: column;
@@ -202,6 +263,11 @@ footer{
 .redes h3{
     color: whitesmoke;
 }
+@media screen and (max-width: 576px){
+    .redes h3{
+        font-size: 14px;
+    }
+}
 .redes ul{
     display: flex;
     flex-direction: row;
@@ -211,8 +277,19 @@ footer{
     list-style: none;
     font-size: 28px;
 }
+@media screen and (max-width: 576px){
+    .redes ul{
+        gap: 1em;
+        font-size: 20px;
+    }
+}
 #logo-footer img{
     width: 300px;
+}
+@media screen and (max-width: 576px){
+    #logo-footer img{
+        width: 120px;
+    }
 }
 /*fin de estilo index*/
 /*inicio estilo página2*/
@@ -225,7 +302,20 @@ footer{
     align-items: center;
     gap: 1em;
 }
+@media screen and (max-width: 576px){
+    .main_catalogo{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        gap: .3em;
+    }
+}
 .catalogo{
+    width: 100%;
+    height: 100%;
     display: flex; 
     flex-direction: row;
     flex-wrap: wrap;
@@ -234,14 +324,15 @@ footer{
     margin: 10px;
     padding: 10px;
     border-radius: .5em;
-    width: 100%;
-    height: 100%;
     background-color: #131313;
     color: whitesmoke;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     gap: 2em;
+}
+@media screen and (max-width: 576px){
+    .catalogo{
+        width: 320px;
+        gap: .5em;
+    }
 }
 .catalogo img{
     width: 300px;
@@ -257,4 +348,27 @@ footer{
     background-color: #043069;
     color: whitesmoke;
     cursor: pointer;
+}
+@media screen and (max-width: 576px){
+    .catalogo ul button{
+            margin-top: 10px;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            font-weight: 600;
+        }
+}
+@media screen and (max-width: 576px){
+    .catalogo ul{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .2em;
+    }
+}
+@media screen and (max-width: 576px){
+    .catalogo ul button{
+        width: 100px;
+    }
 }
